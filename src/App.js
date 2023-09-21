@@ -6,15 +6,22 @@ import Footer from './Components/Footer/Footer';
 
 function App() {
 
+  const [state, setState] = useState(JSON.parse(localStorage.getItem('toDo')) || [])
+
   return (
     <div>
       <Header />
 
       <div className='h-full overflow-y-auto'>
-        <Task />
+        <Task
+          value='Hello'
+        />
       </div>
 
-      <Footer/>
+      <Footer
+        state={state}
+        setState={setState}
+      />
     </div>
   );
 }

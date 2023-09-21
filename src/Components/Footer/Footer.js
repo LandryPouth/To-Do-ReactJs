@@ -1,4 +1,18 @@
-function Footer() {
+function Footer({ state, setState }) {
+    function setItem(e) {
+        e.preventDefault();
+
+        const inpValue = document.querySelector('input').value;
+
+        if (inpValue) {
+            const storage = [...state, {value: inpValue, status: 0}]
+            setState(storage)
+                    
+            localStorage.setItem('toDo', JSON.stringify(storage))
+        }
+
+        document.querySelector('input').value = ''
+    }
     return (
         <div>
             <form 
@@ -11,7 +25,7 @@ function Footer() {
                     className="h-10 w-9/12 md:w-10/12 lg:w-11/12 bg-violet-100 border-b-2 border-gray-300 outline-none text-xl text-gray-600"
                 />
                 <button 
-                    type="submit"
+                    onClick={ setItem }
                     className="bg-violet-600 hover:bg-violet-800 px-4 py-2 rounded text-white font-bold"
                 >
                     Ajouter
