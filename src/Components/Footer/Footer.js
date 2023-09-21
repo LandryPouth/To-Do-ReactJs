@@ -3,9 +3,10 @@ function Footer({ state, setState }) {
         e.preventDefault();
 
         const inpValue = document.querySelector('input').value;
+        const id = Math.random() * 100
 
         if (inpValue) {
-            const storage = [...state, {value: inpValue, status: 0}]
+            const storage = [...state, {value: inpValue, status: 0, id: id}]
             setState(storage)
                     
             localStorage.setItem('toDo', JSON.stringify(storage))

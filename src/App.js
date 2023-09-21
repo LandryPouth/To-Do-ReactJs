@@ -13,9 +13,9 @@ function App() {
       <Header />
 
       <div className='h-full overflow-y-auto'>
-        <Task
-          value='Hello'
-        />
+        {
+          state.map(item => <Task value={item.value} key={item.id} />)
+        }
       </div>
 
       <Footer
