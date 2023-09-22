@@ -14,7 +14,10 @@ function App() {
 
       <div className='h-full overflow-y-auto'>
         {
-          state.map(item => <Task value={item.value} key={item.id} />)
+          state.map(item => <Task 
+            data={item}
+            key={item.id}
+          />)
         }
       </div>
 

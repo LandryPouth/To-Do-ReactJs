@@ -6,7 +6,7 @@ function Footer({ state, setState }) {
         const id = Math.random() * 100
 
         if (inpValue) {
-            const storage = [...state, {value: inpValue, status: 0, id: id}]
+            const storage = [...state, {value: inpValue, status: false, id: id}]
             setState(storage)
                     
             localStorage.setItem('toDo', JSON.stringify(storage))
